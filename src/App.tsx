@@ -6,6 +6,7 @@ import {
   Heart,
   MessageCircle,
   Music2,
+  PlayCircle,
   Sparkles,
 } from "lucide-react";
 
@@ -18,6 +19,7 @@ function App() {
 
           <div>
             <strong>Gisele Neymerk</strong>
+
             <small>
               Personal Trainer • Pilates • Dança
             </small>
@@ -52,7 +54,7 @@ function App() {
           </h1>
 
           <p>
-            Gisele Neymerk é Personal Trainer formada em Educação Física pela
+            <strong>Gisele Neymerk</strong> é Personal Trainer formada em Educação Física pela
             UFRJ, professora de Pilates e Dança, com mais de 14 anos de
             experiência promovendo saúde, bem-estar e qualidade de vida através
             do movimento.
@@ -228,6 +230,7 @@ function App() {
               className="primaryButton"
               href="https://wa.me/5521999638993"
               target="_blank"
+              rel="noreferrer"
             >
               <MessageCircle size={18} />
               WhatsApp
@@ -235,15 +238,179 @@ function App() {
 
             <a
               className="secondaryButton"
-              href="https://instagram.com"
+              href="https://www.instagram.com/gizaneymerkoficial/"
               target="_blank"
+              rel="noreferrer"
             >
               <Camera size={18} />
               Instagram
             </a>
+
+            <a
+              className="secondaryButton"
+              href="https://www.tiktok.com/@gizaneymerkoficial"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Music2 size={18} />
+              TikTok
+            </a>
+
+            <a
+              className="secondaryButton"
+              href="https://youtube.com/@gizaneymerkoficial"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <PlayCircle size={18} />
+              YouTube
+            </a>
           </div>
         </div>
       </section>
+
+      <section className="inspiration">
+        <div className="inspirationHeader">
+          <span>Inspiração</span>
+
+          <h2>
+            O movimento transforma. A decisão começa hoje.
+          </h2>
+
+          <p>
+            Cada treino, cada escolha e cada pequeno passo constroem uma versão
+            mais forte, saudável e feliz de você mesma.
+          </p>
+        </div>
+
+        <div className="videoSection">
+          <iframe
+            src="https://www.youtube.com/embed/watch?v=Wi5VJVLul3M"
+            title="Gisele Neymerk"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+
+        <div className="impactCards">
+          <article>
+            <strong>Movimento é Vida</strong>
+
+            <p>
+              Seu corpo foi criado para se mover, evoluir e conquistar novos
+              desafios todos os dias.
+            </p>
+          </article>
+
+          <article>
+            <strong>Equilíbrio é Poder</strong>
+
+            <p>
+              Saúde física, emocional e mental caminham juntas para uma vida
+              plena e com propósito.
+            </p>
+          </article>
+
+          <article>
+            <strong>Você é Capaz</strong>
+
+            <p>
+              Grandes transformações começam com uma simples decisão:
+              começar.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <footer className="footer">
+        <div className="footerContent">
+          <div className="footerBrand">
+            <div className="footerLogo">
+              <span className="logoDot"></span>
+
+              <div>
+                <h3>Gisele Neymerk</h3>
+                <p>
+                  Personal Trainer • Pilates • Dança
+                </p>
+              </div>
+            </div>
+
+            <span className="footerPhrase">
+              Movimento, saúde e qualidade de vida para uma vida mais leve.
+            </span>
+          </div>
+
+          <div className="footerLinks">
+            <h4>Navegação</h4>
+
+            <a href="#sobre">Sobre</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#galeria">Galeria</a>
+            <a href="#contato">Contato</a>
+          </div>
+
+          <div className="footerLinks">
+            <h4>Atendimentos</h4>
+
+            <span>Personal Training</span>
+            <span>Pilates</span>
+            <span>Dança</span>
+            <span>Consultoria Online</span>
+            <span>Aulas Particulares</span>
+            <span>Palestras</span>
+          </div>
+
+          <div className="footerLinks">
+            <h4>Contato</h4>
+
+            <a
+              href="https://wa.me/5521999638993"
+              target="_blank"
+              rel="noreferrer"
+            >
+              WhatsApp
+            </a>
+
+            <a
+              href="https://www.instagram.com/gizaneymerkoficial/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Instagram
+            </a>
+
+            <a
+              href="https://www.tiktok.com/@gizaneymerkoficial"
+              target="_blank"
+              rel="noreferrer"
+            >
+              TikTok
+            </a>
+
+            <a
+              href="https://youtube.com/@gizaneymerkoficial"
+              target="_blank"
+              rel="noreferrer"
+            >
+              YouTube
+            </a>
+
+            <span>Rio de Janeiro • RJ</span>
+          </div>
+        </div>
+
+        <div className="footerBottom">
+          <span>
+            © {new Date().getFullYear()} Gisele Neymerk.
+            Todos os direitos reservados.
+          </span>
+
+          <span>
+            Desenvolvido com ❤️ para promover saúde e bem-estar.
+          </span>
+        </div>
+      </footer>
     </main>
   );
 }

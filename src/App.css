@@ -21,15 +21,44 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
+}
+
+.logo strong {
+  display: block;
+  font-size: 1.55rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+
+  background: linear-gradient(
+    135deg,
+    #102331,
+    #2f6f8f
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo small {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.95rem;
+  color: #5d7885;
+  font-weight: 600;
 }
 
 .logoDot {
-  width: 42px;
-  height: 42px;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #55b8e8, #2f6f8f 55%, #4f765d);
-  box-shadow: 0 12px 30px rgba(47, 111, 143, 0.3);
+  background: linear-gradient(
+    135deg,
+    #55b8e8,
+    #2f6f8f 55%,
+    #4f765d
+  );
+  box-shadow: 0 15px 35px rgba(47, 111, 143, 0.3);
 }
 
 .logo strong {
@@ -472,5 +501,219 @@
 
   .aboutNumbers div {
     min-height: 130px;
+  }
+}
+
+.header .logo strong {
+  display: block !important;
+  font-size: 1.65rem !important;
+  font-weight: 950 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.05em !important;
+  color: #0d2a3a !important;
+}
+
+.header .logo small {
+  display: block !important;
+  margin-top: 7px !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  color: #426879 !important;
+}
+
+.header .logoDot {
+  width: 58px !important;
+  height: 58px !important;
+}
+
+.footer {
+  margin-top: 120px;
+  background: linear-gradient(
+    135deg,
+    #0f2230,
+    #173d52,
+    #295c71
+  );
+  color: white;
+}
+
+.footerContent {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 80px 0 50px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footerLogo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.footerLogo h3 {
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+.footerLogo p {
+  color: rgba(255,255,255,0.7);
+}
+
+.footerPhrase {
+  display: block;
+  max-width: 420px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.85);
+}
+
+.footerLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footerLinks h4 {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #8fd4ff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.footerLinks a,
+.footerLinks span {
+  color: rgba(255,255,255,0.82);
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.footerLinks a:hover {
+  color: #8fd4ff;
+  transform: translateX(4px);
+}
+
+.footerBottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  color: rgba(255,255,255,0.65);
+  font-size: 0.92rem;
+}
+
+.contactButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.contactButtons a {
+  min-width: 170px;
+}
+
+@media (max-width: 768px) {
+  .contactButtons {
+    flex-direction: column;
+  }
+
+  .contactButtons a {
+    width: 100%;
+  }
+}
+
+.inspiration {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 120px 0;
+}
+
+.inspirationHeader {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+.inspirationHeader span {
+  display: inline-block;
+  color: #1f83b7;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 16px;
+}
+
+.inspirationHeader h2 {
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  margin-bottom: 20px;
+}
+
+.inspirationHeader p {
+  color: #456575;
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+.videoSection {
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(35, 92, 120, 0.18);
+  margin-bottom: 60px;
+}
+
+.videoSection iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  display: block;
+}
+
+.impactCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.impactCards article {
+  padding: 38px;
+  border-radius: 32px;
+  background: rgba(255,255,255,0.8);
+  border: 1px solid rgba(56,169,230,0.15);
+  box-shadow: 0 20px 50px rgba(35,92,120,0.08);
+  transition: 0.3s ease;
+}
+
+.impactCards article:hover {
+  transform: translateY(-8px);
+}
+
+.impactCards strong {
+  display: block;
+  font-size: 1.6rem;
+  color: #102331;
+  margin-bottom: 16px;
+}
+
+.impactCards p {
+  color: #456575;
+  line-height: 1.8;
+}
+
+@media (max-width: 900px) {
+  .impactCards {
+    grid-template-columns: 1fr;
+  }
+
+  .inspiration {
+    padding: 80px 0;
   }
 }
