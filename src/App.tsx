@@ -154,7 +154,7 @@ function App() {
           <span>Serviços</span>
 
           <h2>
-            Corpo forte. Mente leve.
+            Corpo forte. Mente leve. Vida em movimento.
           </h2>
         </div>
 
@@ -187,8 +187,30 @@ function App() {
             <h3>Dança</h3>
 
             <p>
-              Movimento, energia, expressão corporal e liberdade através da
-              dança e do ritmo.
+              Movimento, energia, expressão corporal e liberdade através da dança
+              e do ritmo.
+            </p>
+          </article>
+
+          <article className="serviceCard">
+            <Sparkles size={32} />
+
+            <h3>Palestras</h3>
+
+            <p>
+              Palestras voltadas às áreas da saúde, qualidade de vida, bem-estar,
+              movimento humano e vida da mulher.
+            </p>
+          </article>
+
+          <article className="serviceCard">
+            <MessageCircle size={32} />
+
+            <h3>Consultoria Online</h3>
+
+            <p>
+              Acompanhamento à distância com orientação personalizada para quem
+              deseja treinar com segurança, constância e direção.
             </p>
           </article>
         </div>
