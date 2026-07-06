@@ -20,16 +20,17 @@ function mapProfile(profile: Record<string, unknown>): User {
     email:     profile.email as string,
     name:      profile.name as string,
     avatar:    profile.avatar_url as string | undefined,
+    role:      'student',
     plan:      (profile.plan as User['plan']) ?? 'free',
     createdAt: profile.created_at as string,
     profile: {
       streak:           (profile.streak as number) ?? 0,
       completedClasses: (profile.completed_classes as number) ?? 0,
       points:           (profile.points as number) ?? 0,
+      totalMinutes:     0,
+      badges:           [],
       weight:           profile.weight as number | undefined,
       height:           profile.height as number | undefined,
-      goal:             profile.goal as string | undefined,
-      bio:              profile.bio as string | undefined,
     },
   }
 }
