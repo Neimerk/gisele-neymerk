@@ -8,19 +8,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Brand – índigo escuro / azul bem escuro quase lilás
+        // Brand – azul marinho
         brand: {
-          50:  '#EEF2FF',
-          100: '#E0E7FF',
-          200: '#C7D2FE',
-          300: '#A5B4FC',
-          400: '#818CF8',
-          500: '#6366F1',
-          600: '#4F46E5',
-          700: '#4338CA',
-          800: '#3730A3',
-          900: '#312E81',
-          950: '#1E1B4B',
+          50:  '#EFF6FF',
+          100: '#DBEAFE',
+          200: '#BFDBFE',
+          300: '#93C5FD',
+          400: '#60A5FA',
+          500: '#3B82F6',
+          600: '#2563EB',
+          700: '#1D4ED8',
+          800: '#1E40AF',
+          900: '#1E3A8A',
+          950: '#172554',
         },
         ocean: {
           50:  '#F0FDFA',
@@ -55,14 +55,14 @@ export default {
           400: '#FBBF24',
           500: '#F59E0B',
         },
-        // cream – lavanda muito clara / fundo neutro
+        // cream – azul muito claro / fundo neutro
         cream: {
-          50:  '#FAFAFA',
-          100: '#F5F5FF',
-          200: '#EBEBFE',
-          300: '#D9D8F8',
-          400: '#B8B5F4',
-          500: '#9B97F0',
+          50:  '#F8FAFF',
+          100: '#EFF6FF',
+          200: '#DBEAFE',
+          300: '#BFDBFE',
+          400: '#93C5FD',
+          500: '#60A5FA',
         },
         slate: {
           850: '#0A2540',
@@ -78,12 +78,12 @@ export default {
         '5xl': '2.5rem',
       },
       boxShadow: {
-        'warm-sm': '0 1px 3px 0 rgba(67,56,202,0.08), 0 1px 2px -1px rgba(67,56,202,0.06)',
-        'warm':    '0 4px 6px -1px rgba(67,56,202,0.10), 0 2px 4px -2px rgba(67,56,202,0.06)',
-        'warm-lg': '0 10px 15px -3px rgba(67,56,202,0.12), 0 4px 6px -4px rgba(67,56,202,0.08)',
-        'warm-xl': '0 20px 25px -5px rgba(67,56,202,0.14), 0 8px 10px -6px rgba(67,56,202,0.10)',
-        'glass':   '0 8px 32px 0 rgba(99,102,241,0.12)',
-        'glow':    '0 0 40px rgba(99,102,241,0.25)',
+        'warm-sm': '0 1px 3px 0 rgba(29,78,216,0.08), 0 1px 2px -1px rgba(29,78,216,0.06)',
+        'warm':    '0 4px 6px -1px rgba(29,78,216,0.10), 0 2px 4px -2px rgba(29,78,216,0.06)',
+        'warm-lg': '0 10px 15px -3px rgba(29,78,216,0.12), 0 4px 6px -4px rgba(29,78,216,0.08)',
+        'warm-xl': '0 20px 25px -5px rgba(29,78,216,0.14), 0 8px 10px -6px rgba(29,78,216,0.10)',
+        'glass':   '0 8px 32px 0 rgba(59,130,246,0.12)',
+        'glow':    '0 0 40px rgba(59,130,246,0.25)',
       },
       backgroundImage: {
         'gradient-warm': 'linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 50%, #BAE6FD 100%)',

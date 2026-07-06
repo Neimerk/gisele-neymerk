@@ -31,7 +31,7 @@ export function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-2xl flex items-center justify-center shadow-warm group-hover:shadow-warm-lg transition-shadow"
-              style={{ background: 'linear-gradient(135deg, #6366F1, #3730A3)' }}>
+              style={{ background: 'linear-gradient(135deg, #3B82F6, #1E40AF)' }}>
               <span className="text-white font-serif font-bold text-lg">G</span>
             </div>
             <div>

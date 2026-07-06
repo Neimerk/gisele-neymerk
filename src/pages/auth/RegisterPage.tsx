@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowLeft, ArrowRight, Check, Sparkles } from 'lucide-react'
-import { useAuthStore, DEMO_USER } from '@/stores/authStore'
+import { useAuthStore } from '@/stores/authStore'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
 import { Card } from '@/components/ui/Card'
@@ -26,13 +26,14 @@ const steps = ['Dados', 'Objetivos', 'Plano', 'Concluído']
 
 export default function RegisterPage() {
   const navigate = useNavigate()
-  const { login, setLoading, isLoading } = useAuthStore()
+  const { register, isLoading } = useAuthStore()
   const [step, setStep] = useState(0)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [selectedGoals, setSelectedGoals] = useState<string[]>([])
   const [selectedPlan, setSelectedPlan] = useState<string>('premium')
+  const [registerError, setRegisterError] = useState('')
 
   const toggleGoal = (id: string) => {
     setSelectedGoals(prev =>
@@ -44,11 +45,14 @@ export default function RegisterPage() {
   const prevStep = () => setStep(s => Math.max(s - 1, 0))
 
   const complete = async () => {
-    setLoading(true)
-    await new Promise(r => setTimeout(r, 1200))
-    login({ ...DEMO_USER, name, email: email || DEMO_USER.email })
-    toast.success('Conta criada! Bem-vinda à família Gisele Neymerk 🌿')
-    navigate('/dashboard')
+    setRegisterError('')
+    const { error } = await register(email, password, name)
+    if (error) {
+      setRegisterError(error)
+    } else {
+      toast.success('Conta criada! Bem-vinda à família Gisele Neymerk!')
+      navigate('/dashboard')
+    }
   }
 
   return (
@@ -182,8 +186,11 @@ export default function RegisterPage() {
                     <div className="flex items-center gap-2 text-sm"><Check size={14} className="text-sage-600" /> Perfil personalizado criado</div>
                     <div className="flex items-center gap-2 text-sm"><Check size={14} className="text-sage-600" /> Gisele IA disponível 24/7</div>
                   </div>
+                  {registerError && (
+                    <p className="text-sm text-red-500 text-center bg-red-50 rounded-xl py-2 px-4 mb-2">{registerError}</p>
+                  )}
                   <Button fullWidth size="lg" icon={<Sparkles size={16} />} onClick={complete} loading={isLoading}>
-                    Iniciar minha jornada 🌿
+                    Iniciar minha jornada
                   </Button>
                 </motion.div>
               )}

@@ -6,18 +6,18 @@
 
 @layer base {
   :root {
-    /* Índigo escuro — azul bem escuro quase lilás */
-    --brand-primary:   #4338CA;
-    --brand-accent:    #6366F1;
-    --brand-light:     #EEF2FF;
+    /* Azul marinho */
+    --brand-primary:   #1D4ED8;
+    --brand-accent:    #3B82F6;
+    --brand-light:     #EFF6FF;
     --ocean:           #14B8A6;
     --sand:            #FEF3C7;
-    --sky:             #818CF8;
+    --sky:             #60A5FA;
     --sun:             #FBBF24;
-    --cream:           #F5F5FF;
-    --text-primary:    #1E1B4B;
-    --text-secondary:  #312E81;
-    --text-muted:      #6366F1;
+    --cream:           #EFF6FF;
+    --text-primary:    #172554;
+    --text-secondary:  #1E3A8A;
+    --text-muted:      #3B82F6;
   }
 
   * { box-sizing: border-box; }
@@ -32,7 +32,7 @@
     font-family: 'Inter', system-ui, sans-serif;
     font-feature-settings: 'cv11', 'ss01';
     font-variation-settings: 'opsz' 32;
-    background-color: #F5F5FF;
+    background-color: #EFF6FF;
   }
 
   h1, h2, h3 {
@@ -41,14 +41,14 @@
   }
 
   ::selection {
-    background: rgba(99,102,241,0.20);
-    color: #1E1B4B;
+    background: rgba(59,130,246,0.20);
+    color: #172554;
   }
 
   ::-webkit-scrollbar        { width: 6px; height: 6px; }
-  ::-webkit-scrollbar-track  { background: #EEF2FF; }
-  ::-webkit-scrollbar-thumb  { background: #A5B4FC; border-radius: 3px; }
-  ::-webkit-scrollbar-thumb:hover { background: #6366F1; }
+  ::-webkit-scrollbar-track  { background: #EFF6FF; }
+  ::-webkit-scrollbar-thumb  { background: #93C5FD; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #3B82F6; }
 }
 
 @layer components {

@@ -89,7 +89,7 @@ const testimonials = [
 ]
 
 const modules = [
-  { icon: '🧘', title: 'Pilates', count: '200+ aulas',    color: '#EEF2FF' },
+  { icon: '🧘', title: 'Pilates', count: '200+ aulas',    color: '#EFF6FF' },
   { icon: '💪', title: 'Funcional', count: '150+ treinos', color: '#F0FDFA' },
   { icon: '🧠', title: 'Saúde Mental', count: '80+ sessões', color: '#F5F3FF' },
   { icon: '🥗', title: 'Nutrição', count: 'Diário + Planos', color: '#F0FDF4' },
@@ -209,7 +209,7 @@ export default function LandingPage() {
             >
               {/* Glow behind card */}
               <div className="absolute inset-0 rounded-4xl blur-2xl opacity-30"
-                style={{ background: 'linear-gradient(135deg, #6366F1, #14B8A6)' }} />
+                style={{ background: 'linear-gradient(135deg, #3B82F6, #14B8A6)' }} />
 
               <div className="relative rounded-4xl overflow-hidden border border-white/20 shadow-warm-xl"
                 style={{ background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(20px)' }}>
@@ -217,7 +217,7 @@ export default function LandingPage() {
                   {/* Topbar */}
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-8 h-8 rounded-xl flex items-center justify-center"
-                      style={{ background: 'linear-gradient(135deg, #6366F1, #3730A3)' }}>
+                      style={{ background: 'linear-gradient(135deg, #3B82F6, #1E40AF)' }}>
                       <span className="text-white font-serif font-bold text-sm">G</span>
                     </div>
                     <div>
@@ -230,12 +230,12 @@ export default function LandingPage() {
                   </div>
 
                   {/* Progress ring */}
-                  <div className="rounded-3xl p-5 mb-4" style={{ background: 'linear-gradient(135deg, #EEF2FF, #E0E7FF)' }}>
+                  <div className="rounded-3xl p-5 mb-4" style={{ background: 'linear-gradient(135deg, #EFF6FF, #DBEAFE)' }}>
                     <div className="flex items-center gap-4">
                       <div className="relative w-20 h-20 flex-shrink-0">
                         <svg viewBox="0 0 80 80" className="-rotate-90 w-20 h-20">
-                          <circle cx="40" cy="40" r="32" fill="none" stroke="#C7D2FE" strokeWidth="8" />
-                          <circle cx="40" cy="40" r="32" fill="none" stroke="#6366F1" strokeWidth="8"
+                          <circle cx="40" cy="40" r="32" fill="none" stroke="#BFDBFE" strokeWidth="8" />
+                          <circle cx="40" cy="40" r="32" fill="none" stroke="#3B82F6" strokeWidth="8"
                             strokeDasharray="201" strokeDashoffset="50" strokeLinecap="round" />
                         </svg>
                         <div className="absolute inset-0 flex items-center justify-center">
@@ -261,15 +261,15 @@ export default function LandingPage() {
                     { title: 'Pilates Funcional',   time: '18:00', duration: '50min', icon: '💪' },
                   ].map(cls => (
                     <div key={cls.title} className="flex items-center gap-3 p-3 rounded-xl mb-2 border"
-                      style={{ background: '#FDFAFF', borderColor: '#E9D5FF' }}>
+                      style={{ background: '#F8FAFF', borderColor: '#DBEAFE' }}>
                       <div className="w-8 h-8 rounded-xl flex items-center justify-center text-sm"
-                        style={{ background: '#FAF5FF' }}>{cls.icon}</div>
+                        style={{ background: '#EFF6FF' }}>{cls.icon}</div>
                       <div className="flex-1 min-w-0">
                         <div className="text-xs font-medium text-brand-900 truncate">{cls.title}</div>
                         <div className="text-[10px] text-brand-500">{cls.time} · {cls.duration}</div>
                       </div>
                       <div className="w-6 h-6 rounded-full flex items-center justify-center"
-                        style={{ background: '#A855F7' }}>
+                        style={{ background: '#3B82F6' }}>
                         <Play size={8} fill="white" className="text-white ml-0.5" />
                       </div>
                     </div>
@@ -297,7 +297,7 @@ export default function LandingPage() {
                 animate={{ y: [6, -6, 6] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
                 className="absolute -right-4 bottom-1/4 rounded-2xl px-4 py-3 shadow-warm-xl"
-                style={{ background: 'linear-gradient(135deg, #3730A3, #6366F1)' }}
+                style={{ background: 'linear-gradient(135deg, #1E40AF, #3B82F6)' }}
               >
                 <div className="flex items-center gap-2">
                   <Sparkles size={16} className="text-brand-300" />
@@ -320,7 +320,7 @@ export default function LandingPage() {
       </section>
 
       {/* ─── Stats ──────────────────────────────────────────────────────────── */}
-      <section className="py-12" style={{ backgroundColor: '#FDFAFF' }}>
+      <section className="py-12" style={{ backgroundColor: '#F8FAFF' }}>
         <div className="max-w-7xl mx-auto px-6">
           <FadeSection className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map(stat => (
@@ -340,11 +340,11 @@ export default function LandingPage() {
             <FadeSection>
               <motion.div variants={fadeUp} className="relative">
                 <div className="relative rounded-4xl overflow-hidden aspect-[4/5]"
-                  style={{ background: 'linear-gradient(135deg, #FAF5FF, #E9D5FF)' }}>
+                  style={{ background: 'linear-gradient(135deg, #EFF6FF, #DBEAFE)' }}>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
                       <div className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-4"
-                        style={{ background: 'linear-gradient(135deg, #E9D5FF, #D8B4FE)' }}>
+                        style={{ background: 'linear-gradient(135deg, #DBEAFE, #BFDBFE)' }}>
                         <span className="text-5xl font-serif font-bold text-brand-700">G</span>
                       </div>
                       <div className="text-brand-500 text-sm font-medium">Foto da Gisele</div>
@@ -357,7 +357,7 @@ export default function LandingPage() {
                   <div className="text-xs text-brand-500">Pós-graduada em Psicanálise</div>
                 </div>
                 <div className="absolute -top-4 -left-4 rounded-2xl p-4 shadow-warm-xl"
-                  style={{ background: 'linear-gradient(135deg, #7E22CE, #A855F7)' }}>
+                  style={{ background: 'linear-gradient(135deg, #1D4ED8, #3B82F6)' }}>
                   <div className="text-xs font-semibold text-brand-100 mb-1">Especialidades</div>
                   <div className="text-xs text-brand-300">Pilates · Bem-estar Mental</div>
                   <div className="text-xs text-brand-300">Movimento Terapêutico</div>
@@ -385,7 +385,7 @@ export default function LandingPage() {
                     { icon: '🧘', title: 'Pilates', sub: 'Especialista certificada' },
                     { icon: '❤️', title: 'Wellness', sub: '+10 anos de experiência' },
                   ].map(item => (
-                    <div key={item.title} className="flex items-start gap-3 p-4 rounded-2xl" style={{ background: '#FAF5FF' }}>
+                    <div key={item.title} className="flex items-start gap-3 p-4 rounded-2xl" style={{ background: '#EFF6FF' }}>
                       <span className="text-2xl">{item.icon}</span>
                       <div>
                         <div className="text-sm font-semibold text-brand-900">{item.title}</div>
@@ -404,7 +404,7 @@ export default function LandingPage() {
       </section>
 
       {/* ─── Features ───────────────────────────────────────────────────────── */}
-      <section className="py-24" style={{ backgroundColor: '#FAF5FF' }}>
+      <section className="py-24" style={{ backgroundColor: '#EFF6FF' }}>
         <div className="max-w-7xl mx-auto px-6">
           <FadeSection className="text-center mb-16">
             <motion.div variants={fadeUp}>
@@ -460,7 +460,7 @@ export default function LandingPage() {
 
       {/* ─── Gisele IA ──────────────────────────────────────────────────────── */}
       <section className="py-24 relative overflow-hidden"
-        style={{ background: 'linear-gradient(160deg, #1E0A3C 0%, #3B0764 35%, #581C87 65%, #7E22CE 85%, #A855F7 100%)' }}>
+        style={{ background: 'linear-gradient(160deg, #0C1A3D 0%, #0F2A6B 35%, #1E3A8A 65%, #1D4ED8 85%, #3B82F6 100%)' }}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-0 right-0 w-96 h-96 rounded-full"
             style={{ background: 'radial-gradient(circle, rgba(251,191,36,0.15) 0%, transparent 60%)' }} />
@@ -477,7 +477,7 @@ export default function LandingPage() {
                 </Badge>
                 <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
                   Conheça a{' '}
-                  <span className="italic" style={{ background: 'linear-gradient(135deg, #E9D5FF, #FFFFFF, #F0ABFC)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                  <span className="italic" style={{ background: 'linear-gradient(135deg, #DBEAFE, #FFFFFF, #93C5FD)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                     Gisele IA
                   </span>
                 </h2>
@@ -515,7 +515,7 @@ export default function LandingPage() {
                   style={{ background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(20px)' }}>
                   <div className="flex items-center gap-3 mb-6 pb-4 border-b border-brand-100">
                     <div className="w-10 h-10 rounded-2xl flex items-center justify-center shadow-warm"
-                      style={{ background: 'linear-gradient(135deg, #6366F1, #3730A3)' }}>
+                      style={{ background: 'linear-gradient(135deg, #3B82F6, #1E40AF)' }}>
                       <Sparkles size={16} className="text-white" />
                     </div>
                     <div>
@@ -529,27 +529,27 @@ export default function LandingPage() {
                   <div className="space-y-4 mb-6">
                     <div className="flex gap-3">
                       <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
-                        style={{ background: 'linear-gradient(135deg, #6366F1, #3730A3)' }}>
+                        style={{ background: 'linear-gradient(135deg, #3B82F6, #1E40AF)' }}>
                         <Sparkles size={12} className="text-white" />
                       </div>
                       <div className="px-4 py-3 max-w-[80%] rounded-2xl rounded-tl-none text-sm text-brand-800"
-                        style={{ background: '#EEF2FF' }}>
+                        style={{ background: '#EFF6FF' }}>
                         Olá, Ana! Percebi que você não fez pilates ontem. Como você está se sentindo hoje? 🌊
                       </div>
                     </div>
                     <div className="flex gap-3 justify-end">
                       <div className="px-4 py-3 max-w-[80%] rounded-2xl rounded-tr-none text-sm text-white"
-                        style={{ background: 'linear-gradient(135deg, #3730A3, #6366F1)' }}>
+                        style={{ background: 'linear-gradient(135deg, #1E40AF, #3B82F6)' }}>
                         Estou com a coluna doendo um pouco depois de um dia longo no trabalho
                       </div>
                     </div>
                     <div className="flex gap-3">
                       <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
-                        style={{ background: 'linear-gradient(135deg, #6366F1, #3730A3)' }}>
+                        style={{ background: 'linear-gradient(135deg, #3B82F6, #1E40AF)' }}>
                         <Sparkles size={12} className="text-white" />
                       </div>
                       <div className="px-4 py-3 max-w-[80%] rounded-2xl rounded-tl-none text-sm text-brand-800"
-                        style={{ background: '#EEF2FF' }}>
+                        style={{ background: '#EFF6FF' }}>
                         Preparei uma sequência especial de pilates terapêutico para coluna — 20 minutos suaves que vão te aliviar. Quer começar? 💙
                       </div>
                     </div>
@@ -557,9 +557,9 @@ export default function LandingPage() {
                   <div className="flex gap-3">
                     <input type="text" placeholder="Fale com a Gisele IA..." readOnly
                       className="flex-1 px-4 py-3 rounded-2xl border border-brand-200 text-sm text-brand-700 outline-none"
-                      style={{ background: '#EEF2FF' }} />
+                      style={{ background: '#EFF6FF' }} />
                     <button className="w-10 h-10 rounded-2xl flex items-center justify-center text-white shadow-warm"
-                      style={{ background: 'linear-gradient(135deg, #6366F1, #3730A3)' }}>
+                      style={{ background: 'linear-gradient(135deg, #3B82F6, #1E40AF)' }}>
                       <ArrowRight size={16} />
                     </button>
                   </div>
@@ -571,7 +571,7 @@ export default function LandingPage() {
       </section>
 
       {/* ─── Testimonials ───────────────────────────────────────────────────── */}
-      <section className="py-24" style={{ backgroundColor: '#EEF2FF' }}>
+      <section className="py-24" style={{ backgroundColor: '#EFF6FF' }}>
         <div className="max-w-7xl mx-auto px-6">
           <FadeSection className="text-center mb-16">
             <motion.div variants={fadeUp}>
@@ -592,7 +592,7 @@ export default function LandingPage() {
                   <p className="text-brand-700 text-sm leading-relaxed mb-6 italic">"{t.text}"</p>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold"
-                      style={{ background: 'linear-gradient(135deg, #6366F1, #3730A3)' }}>
+                      style={{ background: 'linear-gradient(135deg, #3B82F6, #1E40AF)' }}>
                       {t.avatar}
                     </div>
                     <div className="flex-1">
@@ -630,7 +630,7 @@ export default function LandingPage() {
       </section>
 
       {/* ─── Pricing ────────────────────────────────────────────────────────── */}
-      <section className="py-24" style={{ backgroundColor: '#EEF2FF' }}>
+      <section className="py-24" style={{ backgroundColor: '#EFF6FF' }}>
         <div className="max-w-7xl mx-auto px-6">
           <FadeSection className="text-center mb-16">
             <motion.div variants={fadeUp}>
@@ -648,7 +648,7 @@ export default function LandingPage() {
                     ? 'border-brand-400 text-white shadow-warm-xl scale-105'
                     : 'bg-white border-brand-100 shadow-warm'
                 }`}
-                  style={plan.highlight ? { background: 'linear-gradient(160deg, #1E1B4B, #3730A3, #4F46E5)' } : {}}>
+                  style={plan.highlight ? { background: 'linear-gradient(160deg, #172554, #1E40AF, #2563EB)' } : {}}>
                   {plan.badge && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                       <Badge className={plan.highlight ? 'bg-white text-brand-700 border-0' : 'bg-brand-600 text-white border-0'} size="sm">

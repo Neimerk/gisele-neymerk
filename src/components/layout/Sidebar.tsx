@@ -56,7 +56,7 @@ export function Sidebar() {
       <div className="h-[72px] flex items-center px-4 border-b border-brand-100 flex-shrink-0">
         <Link to="/dashboard" className="flex items-center gap-3 min-w-0">
           <div className="w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-warm"
-            style={{ background: 'linear-gradient(135deg, #6366F1, #3730A3)' }}>
+            style={{ background: 'linear-gradient(135deg, #3B82F6, #1E40AF)' }}>
             <span className="text-white font-serif font-bold text-lg">G</span>
           </div>
           <AnimatePresence>

@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Eye, EyeOff, Sparkles, ArrowLeft } from 'lucide-react'
-import { useAuthStore, DEMO_USER } from '@/stores/authStore'
+import { Eye, EyeOff, ArrowLeft } from 'lucide-react'
+import { useAuthStore } from '@/stores/authStore'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
 import { Card } from '@/components/ui/Card'
@@ -10,26 +10,23 @@ import toast from 'react-hot-toast'
 
 export default function LoginPage() {
   const navigate = useNavigate()
-  const { login, setLoading, isLoading } = useAuthStore()
+  const { login, isLoading } = useAuthStore()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
+  const [error, setError] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setLoading(true)
-    await new Promise(r => setTimeout(r, 1200))
-    login(DEMO_USER)
-    toast.success('Bem-vinda de volta, Ana! 🌿')
-    navigate('/dashboard')
-  }
-
-  const handleDemo = async () => {
-    setLoading(true)
-    await new Promise(r => setTimeout(r, 800))
-    login(DEMO_USER)
-    toast.success('Entrando no modo demo... 🌿')
-    navigate('/dashboard')
+    setError('')
+    const { error } = await login(email, password)
+    if (error) {
+      setError('E-mail ou senha incorretos.')
+      toast.error('Credenciais inválidas')
+    } else {
+      toast.success('Bem-vinda de volta! 💜')
+      navigate('/dashboard')
+    }
   }
 
   return (
@@ -57,7 +54,7 @@ export default function LoginPage() {
             {/* Logo */}
             <div className="text-center mb-8">
               <div className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-warm"
-                style={{ background: 'linear-gradient(135deg, #6366F1, #3730A3)' }}>
+                style={{ background: 'linear-gradient(135deg, #3B82F6, #1E40AF)' }}>
                 <span className="text-white font-serif font-bold text-2xl">G</span>
               </div>
               <h1 className="font-serif text-2xl font-bold text-brand-900">Bem-vinda de volta</h1>
@@ -97,28 +94,14 @@ export default function LoginPage() {
                 </Link>
               </div>
 
+              {error && (
+                <p className="text-sm text-red-500 text-center bg-red-50 rounded-xl py-2 px-4">{error}</p>
+              )}
+
               <Button type="submit" fullWidth size="lg" loading={isLoading}>
                 Entrar na plataforma
               </Button>
             </form>
-
-            <div className="relative my-6">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-brand-100" />
-              </div>
-              <div className="relative flex justify-center text-xs text-brand-400 bg-white px-4">ou</div>
-            </div>
-
-            <Button
-              variant="secondary"
-              fullWidth
-              size="lg"
-              icon={<Sparkles size={16} className="text-brand-600" />}
-              onClick={handleDemo}
-              loading={isLoading}
-            >
-              Entrar no modo demo
-            </Button>
 
             <p className="text-center text-sm text-brand-500 mt-6">
               Não tem conta?{' '}

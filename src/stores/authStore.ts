@@ -1,66 +1,102 @@
 import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import { supabase } from '@/lib/supabase'
 import type { User } from '@/types'
 
 interface AuthState {
   user: User | null
   isAuthenticated: boolean
   isLoading: boolean
-  login: (user: User) => void
-  logout: () => void
-  updateUser: (data: Partial<User>) => void
+  login: (email: string, password: string) => Promise<{ error: string | null }>
+  register: (email: string, password: string, name: string) => Promise<{ error: string | null }>
+  logout: () => Promise<void>
+  loadSession: () => Promise<void>
   setLoading: (loading: boolean) => void
+  updateUser: (data: Partial<User>) => void
 }
 
-export const useAuthStore = create<AuthState>()(
-  persist(
-    (set) => ({
-      user: null,
-      isAuthenticated: false,
-      isLoading: false,
+function mapProfile(profile: Record<string, unknown>): User {
+  return {
+    id:        profile.id as string,
+    email:     profile.email as string,
+    name:      profile.name as string,
+    avatar:    profile.avatar_url as string | undefined,
+    plan:      (profile.plan as User['plan']) ?? 'free',
+    createdAt: profile.created_at as string,
+    profile: {
+      streak:           (profile.streak as number) ?? 0,
+      completedClasses: (profile.completed_classes as number) ?? 0,
+      points:           (profile.points as number) ?? 0,
+      weight:           profile.weight as number | undefined,
+      height:           profile.height as number | undefined,
+      goal:             profile.goal as string | undefined,
+      bio:              profile.bio as string | undefined,
+    },
+  }
+}
 
-      login: (user) => set({ user, isAuthenticated: true, isLoading: false }),
+export const useAuthStore = create<AuthState>((set, get) => ({
+  user: null,
+  isAuthenticated: false,
+  isLoading: true,
 
-      logout: () => set({ user: null, isAuthenticated: false }),
+  setLoading: (isLoading) => set({ isLoading }),
 
-      updateUser: (data) =>
-        set((state) => ({
-          user: state.user ? { ...state.user, ...data } : null,
-        })),
+  updateUser: (data) =>
+    set((state) => ({
+      user: state.user ? { ...state.user, ...data } : null,
+    })),
 
-      setLoading: (isLoading) => set({ isLoading }),
-    }),
-    {
-      name: 'gn-auth',
-      partialize: (state) => ({ user: state.user, isAuthenticated: state.isAuthenticated }),
+  loadSession: async () => {
+    set({ isLoading: true })
+    const { data: { session } } = await supabase.auth.getSession()
+    if (session?.user) {
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('id', session.user.id)
+        .single()
+      if (profile) {
+        set({ user: mapProfile(profile as Record<string, unknown>), isAuthenticated: true })
+      }
     }
-  )
-)
+    set({ isLoading: false })
 
-// Demo user for development
-export const DEMO_USER: User = {
-  id: 'demo-001',
-  email: 'ana.silva@email.com',
-  name: 'Ana Silva',
-  role: 'student',
-  plan: 'premium',
-  createdAt: '2024-01-15',
-  profile: {
-    age: 38,
-    gender: 'female',
-    goals: ['emagrecimento', 'postura', 'ansiedade'],
-    fitnessLevel: 'intermediate',
-    weight: 68,
-    height: 165,
-    bmi: 24.9,
-    streak: 12,
-    totalMinutes: 3240,
-    completedClasses: 87,
-    points: 4350,
-    badges: [
-      { id: '1', name: 'Primeiros Passos', description: 'Completou a primeira aula', icon: '🌱', earnedAt: '2024-01-16', category: 'milestone' },
-      { id: '2', name: 'Semana Perfeita', description: '7 dias consecutivos', icon: '🔥', earnedAt: '2024-02-01', category: 'streak' },
-      { id: '3', name: 'Bem-Estar', description: '30 aulas completadas', icon: '✨', earnedAt: '2024-03-10', category: 'milestone' },
-    ],
+    supabase.auth.onAuthStateChange(async (event, session) => {
+      if (event === 'SIGNED_IN' && session?.user) {
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('*')
+          .eq('id', session.user.id)
+          .single()
+        if (profile) {
+          set({ user: mapProfile(profile as Record<string, unknown>), isAuthenticated: true, isLoading: false })
+        }
+      } else if (event === 'SIGNED_OUT') {
+        set({ user: null, isAuthenticated: false, isLoading: false })
+      }
+    })
   },
-}
+
+  login: async (email, password) => {
+    set({ isLoading: true })
+    const { error } = await supabase.auth.signInWithPassword({ email, password })
+    set({ isLoading: false })
+    return { error: error?.message ?? null }
+  },
+
+  register: async (email, password, name) => {
+    set({ isLoading: true })
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: { data: { name } },
+    })
+    set({ isLoading: false })
+    return { error: error?.message ?? null }
+  },
+
+  logout: async () => {
+    await supabase.auth.signOut()
+    set({ user: null, isAuthenticated: false })
+  },
+}))
