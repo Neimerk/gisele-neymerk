@@ -20,7 +20,7 @@ function mapProfile(profile: Record<string, unknown>): User {
     email:     profile.email as string,
     name:      profile.name as string,
     avatar:    profile.avatar_url as string | undefined,
-    role:      'student',
+    role:      (profile.role as User['role']) ?? 'student',
     plan:      (profile.plan as User['plan']) ?? 'free',
     createdAt: profile.created_at as string,
     profile: {
